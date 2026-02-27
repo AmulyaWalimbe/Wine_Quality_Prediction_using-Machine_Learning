@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Quality Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🍷 Wine Quality Prediction</h1>
+    <p>Enter wine chemical properties below</p>
+
+    <form action="/predict" method="post">
+
+        <div class="grid">
+            <input type="number" step="any" name="fixed acidity" placeholder="Fixed Acidity" required>
+            <input type="number" step="any" name="volatile acidity" placeholder="Volatile Acidity" required>
+            <input type="number" step="any" name="citric acid" placeholder="Citric Acid" required>
+            <input type="number" step="any" name="residual sugar" placeholder="Residual Sugar" required>
+            <input type="number" step="any" name="chlorides" placeholder="Chlorides" required>
+            <input type="number" step="any" name="free sulfur dioxide" placeholder="Free Sulfur Dioxide" required>
+            <input type="number" step="any" name="total sulfur dioxide" placeholder="Total Sulfur Dioxide" required>
+            <input type="number" step="any" name="density" placeholder="Density" required>
+            <input type="number" step="any" name="pH" placeholder="pH" required>
+            <input type="number" step="any" name="sulphates" placeholder="Sulphates" required>
+            <input type="number" step="any" name="alcohol" placeholder="Alcohol" required>
+        </div>
+
+        <button type="submit">Predict Quality</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
